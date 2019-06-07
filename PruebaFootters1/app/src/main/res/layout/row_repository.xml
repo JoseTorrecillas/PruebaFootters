@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="8dp"
+    android:background="@color/colorAccent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/textViewName"
+        app:layout_constraintStart_toStartOf="@+id/textViewName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+    <TextView
+        android:id="@+id/textViewLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@drawable/ic_language_18dp"
+        android:drawablePadding="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+    <TextView
+        android:id="@+id/textViewLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@drawable/ic_favorite_18dp"
+        android:drawablePadding="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+</android.support.constraint.ConstraintLayout>

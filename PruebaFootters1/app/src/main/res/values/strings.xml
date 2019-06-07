@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PruebaFootters</string>
+    <string name="tittleMain">List of members of the Wallapop organization of Github</string>
+    <string name="repository">Repositorys</string>
+</resources>
