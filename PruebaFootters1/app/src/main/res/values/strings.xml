@@ -2,4 +2,8 @@
     <string name="app_name">PruebaFootters</string>
     <string name="tittleMain">List of members of the Wallapop organization of Github</string>
     <string name="repository">Repositorys</string>
+    <string name="error">Error :</string>
+    <string name="error_getUser">No coincide el numero de usuario con el de miembros</string>
+    <string name="error_failure">No hay respuesta del servidor</string>
+    <string name="no_user">No hay datos del usuario</string>
 </resources>

@@ -2,6 +2,7 @@ package com.josea.pruebafootters.UI.Main.Interactor;
 
 import com.josea.pruebafootters.UI.Entities.BaseResponse;
 import com.josea.pruebafootters.UI.Entities.Member;
+import com.josea.pruebafootters.UI.Entities.User;
 import com.josea.pruebafootters.UI.Module.ApiModule;
 
 import java.util.List;
@@ -22,20 +23,40 @@ public class MainInteractorImpl implements MainInteractor {
 
     @Override
     public void getMembersOrg(OngetMembersOrg callBack) {
-        Call<BaseResponse<Member>> call = apiModule.getMember();
-        call.enqueue(new Callback<BaseResponse<Member>>() {
+        Call<List<Member>> call = apiModule.getMember();
+        call.enqueue(new Callback<List<Member>>() {
             @Override
-            public void onResponse(Call<BaseResponse<Member>> call, Response<BaseResponse<Member>> response) {
+            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
                 if (response.code()==200){
-                    callBack.onSuccessMember(response.body().getData());
+                    callBack.onSuccessMember(response.body());
                 }else{
                     callBack.onErrorMember(response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<BaseResponse<Member>> call, Throwable t) {
+            public void onFailure(Call<List<Member>> call, Throwable t) {
                 callBack.onErrorMember(-1);
+            }
+        });
+    }
+
+    @Override
+    public void getUser(String url, OngetUser callBack) {
+        Call<User> call = apiModule.getUser(url);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.code()==200){
+                    callBack.onSuccesUser(response.body());
+                }else{
+                    callBack.onErrorUser(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                callBack.onErrorUser(-1);
             }
         });
     }

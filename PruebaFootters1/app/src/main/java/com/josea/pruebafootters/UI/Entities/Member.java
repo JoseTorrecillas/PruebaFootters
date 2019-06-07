@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Member implements Parcelable {
     private String login;
     private String avatar_url;
-
+    private String url;
     public Member() {
     }
 
@@ -26,6 +26,14 @@ public class Member implements Parcelable {
         this.avatar_url = avatar_url;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
     @Override
     public int describeContents() {
@@ -36,14 +44,16 @@ public class Member implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.login);
         dest.writeString(this.avatar_url);
+        dest.writeString(this.url);
     }
 
     protected Member(Parcel in) {
         this.login = in.readString();
         this.avatar_url = in.readString();
+        this.url = in.readString();
     }
 
-    public static final Parcelable.Creator<Member> CREATOR = new Parcelable.Creator<Member>() {
+    public static final Creator<Member> CREATOR = new Creator<Member>() {
         @Override
         public Member createFromParcel(Parcel source) {
             return new Member(source);
