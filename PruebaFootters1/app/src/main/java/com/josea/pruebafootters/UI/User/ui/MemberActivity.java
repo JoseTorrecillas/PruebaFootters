@@ -53,7 +53,7 @@ public class MemberActivity extends AppCompatActivity implements MemberUserView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member);
         ButterKnife.bind(this);
-        initRecycler();
+        initInjection();
         if (getIntent().getExtras() != null) {
             this.user = getIntent().getExtras().getParcelable(Constants.USERS);
             Glide.with(imageViewProfile)

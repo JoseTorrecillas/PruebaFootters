@@ -1,6 +1,9 @@
 package com.josea.pruebafootters.UI.Entities;
 
-public class Repository {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Repository implements Parcelable {
 
     private String name;
     private String description;
@@ -52,4 +55,37 @@ public class Repository {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.description);
+        dest.writeString(this.language);
+        dest.writeInt(this.forks_count);
+        dest.writeInt(this.stargazers_count);
+    }
+
+    protected Repository(Parcel in) {
+        this.name = in.readString();
+        this.description = in.readString();
+        this.language = in.readString();
+        this.forks_count = in.readInt();
+        this.stargazers_count = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Repository> CREATOR = new Parcelable.Creator<Repository>() {
+        @Override
+        public Repository createFromParcel(Parcel source) {
+            return new Repository(source);
+        }
+
+        @Override
+        public Repository[] newArray(int size) {
+            return new Repository[size];
+        }
+    };
 }

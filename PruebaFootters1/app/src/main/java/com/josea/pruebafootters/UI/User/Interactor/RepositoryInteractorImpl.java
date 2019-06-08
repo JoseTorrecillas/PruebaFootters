@@ -23,8 +23,8 @@ public class RepositoryInteractorImpl implements RepositoryInteractor {
 
     @Override
     public void getRepositories(String repos_url, OnGetRepositories callBack) {
-        Call<List<Repository>> call = apiModule.getRepositories(repos_url);
-        call.enqueue(new Callback<List<Repository>>() {
+        Call<List<Repository>> listCall = apiModule.getRepositories(repos_url);
+        listCall.enqueue(new Callback<List<Repository>>() {
             @Override
             public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
                 if (response.code()==200){

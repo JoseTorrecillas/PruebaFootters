@@ -49,7 +49,7 @@ public class AppModule {
 
     @Provides
     RepositoryInteractor repositoryInteractor(RepositoryInteractorImpl interactor){
-        return  interactor;
+        return interactor;
     }
 
     //view

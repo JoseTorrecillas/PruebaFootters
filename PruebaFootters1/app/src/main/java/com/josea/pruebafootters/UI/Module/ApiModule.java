@@ -9,16 +9,12 @@ import com.josea.pruebafootters.UI.Utils.Constants;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Url;
-
 public interface ApiModule {
 
     @GET(Constants.WALLAPOPMEMBER)
     Call<List<Member>> getMember();
-
 
     @GET()
     Call<User> getUser(@Url String login);
